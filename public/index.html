@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<meta name="description" content="Anurag Developers builds smart, user-friendly web applications including Weight Converter and Global Weather apps.">
+<meta name="keywords" content="Anurag Developers, Web Developer, Weight Converter, Weather App, Web Applications">
+<meta name="author" content="Anurag Developers">
+
+<title>Anurag Developers | Smart Web Solutions</title>
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    color: white;
+    transition: 0.4s;
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #0f2027, #203a43);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.dark-mode {
+    background: #111;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #0084ff;
+}
+
+.toggle-btn {
+    background: #0084ff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+header {
+    text-align: center;
+    padding: 100px 20px 60px;
+}
+
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.card {
+    width: 320px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card p {
+    margin-bottom: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    background: #0084ff;
+    color: black;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+}
+
+#about p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #0084ff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.status-message {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+footer {
+    background: rgba(0,0,0,0.5);
+    padding: 30px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 50px;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div><strong>Anurag Developers</strong></div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleMode()">Mode</button>
+</nav>
+
+<header id="home" class="hidden">
+    <img src="logo.png" class="logo">
+    <h1>Building Smart Web Solutions</h1>
+    <p>Innovative • Practical • User-Friendly</p>
+</header>
+
+<section id="projects" class="hidden">
+    <h1>Our Projects</h1>
+    <div class="container">
+        <div class="card">
+            <h2>Weight Converter</h2>
+            <p>Convert mass/weight values instantly with precision and ease.</p>
+            <a href="https://weight-converter-web.onrender.com" target="_blank" class="btn">Visit Website</a>
+        </div>
+
+        <div class="card">
+            <h2>Global Weather</h2>
+            <p>Check real-time weather conditions before planning outdoor activities.</p>
+            <a href="https://weather-app-phi-orpin-25.vercel.app/" target="_blank" class="btn">Visit Website</a>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="hidden">
+    <h1>About Us</h1>
+    <p>
+        Anurag Developers builds efficient and practical digital tools designed to simplify everyday tasks.
+        We focus on performance, clean UI, and real-world usability.
+    </p>
+</section>
+
+<section id="contact" class="hidden">
+    <h1>Contact Us</h1>
+
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" id="submitBtn">Send Message</button>
+        <div class="status-message" id="status"></div>
+    </form>
+</section>
+
+<footer>
+    © 2026 Anurag Developers | All Rights Reserved
+</footer>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark-mode");
+}
+
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const status = document.getElementById("status");
+    const btn = document.getElementById("submitBtn");
+
+    btn.disabled = true;
+    btn.innerText = "Sending...";
+    status.innerText = "";
+
+    const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+    };
+
+    try {
+        const response = await fetch("/send", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            status.style.color = "lightgreen";
+            status.innerText = "Message sent successfully!";
+            document.getElementById("contactForm").reset();
+        } else {
+            throw new Error();
+        }
+
+    } catch (error) {
+        status.style.color = "red";
+        status.innerText = "Error sending message. Try again.";
+    }
+
+    btn.disabled = false;
+    btn.innerText = "Send Message";
+});
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+});
+document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
