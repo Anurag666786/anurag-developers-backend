@@ -198,75 +198,53 @@ footer {
 }
 
 /* ============================= */
-/* MOBILE RESPONSIVE SETTINGS    */
+/* MOBILE NAVBAR IMPROVED       */
 /* ============================= */
 
+.menu-btn {
+    display: none;
+    background: #98cdff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Mobile Only */
 @media screen and (max-width: 768px) {
 
-    /* Navbar */
     nav {
-        flex-direction: column;
-        gap: 15px;
         padding: 15px 20px;
-        text-align: center;
     }
 
     nav ul {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    /* Header */
-    header {
-        padding: 80px 15px 40px;
-    }
-
-    header h1 {
-        font-size: 30px;
-    }
-
-    header h2 {
-        font-size: 22px;
-    }
-
-    .logo {
-        width: 90px;
-    }
-
-    /* Sections */
-    section {
-        padding: 60px 15px;
-    }
-
-    /* Cards */
-    .container {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.9);
         flex-direction: column;
         align-items: center;
-        gap: 25px;
+        gap: 20px;
+        padding: 20px 0;
+        display: none;
     }
 
-    .card {
-        width: 100%;
-        max-width: 350px;
+    nav ul.active {
+        display: flex;
     }
 
-    /* Contact Form */
-    form {
-        width: 100%;
-        padding: 0 10px;
+    .menu-btn {
+        display: block;
     }
 
-    input, textarea {
-        font-size: 16px; /* Prevent zoom on iPhone */
+    .toggle-btn {
+        display: none;
     }
-
-    /* Footer */
-    footer {
-        font-size: 13px;
-        padding: 20px;
-    }
-
 }
+
 
 </style>
 </head>
@@ -282,6 +260,7 @@ footer {
         <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="toggle-btn" onclick="toggleMode()">Mode</button>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 </nav>
 
 <header id="home" class="hidden">
@@ -336,6 +315,11 @@ footer {
 function toggleMode() {
     document.body.classList.toggle("dark-mode");
 }
+
+function toggleMenu() {
+    document.getElementById("nav-links").classList.toggle("active");
+}
+</script>
 
 document.getElementById("contactForm").addEventListener("submit", async function(e) {
     e.preventDefault();
