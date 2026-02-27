@@ -27,8 +27,8 @@ app.post("/send", async (req, res) => {
 
         // ✅ Email to Admin
         const adminMsg = {
-            to: "anuragdevelopers666786@gmail.com", // MUST be verified in SendGrid
-            from: "anuragdevelopers@gmail.com", // MUST be verified in SendGrid
+            to: "anuragdevelopers666786@gmail.com",
+            from: "anuragdevelopers666786@gmail.com", // ✅ VERIFIED EMAIL
             subject: "🚀 New Contact Message",
             html: `
                 <div style="font-family: Arial; padding:20px;">
@@ -58,7 +58,7 @@ app.post("/send", async (req, res) => {
         // ✅ Auto Reply to User
         const userMsg = {
             to: email,
-            from: "your_verified_sender_email@gmail.com", // MUST be verified in SendGrid
+            from: "anuragdevelopers666786@gmail.com", // ✅ VERIFIED EMAIL
             subject: "✅ We Received Your Message",
             html: `
                 <div style="font-family: Arial; padding:20px;">
