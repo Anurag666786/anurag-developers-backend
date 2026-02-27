@@ -6,7 +6,7 @@ require("dotenv").config();
 
 const app = express();
 
-// ✅ Updated CORS for Vercel frontend
+// ✅ CORS for Vercel frontend
 app.use(cors({
     origin: "https://anurag-developers-backend.vercel.app"
 }));
@@ -22,11 +22,11 @@ app.post("/send", async (req, res) => {
         const websiteURL = "https://yourwebsite.vercel.app";
         const logoURL = "https://yourwebsite.vercel.app/logo.png";
 
-        // ✅ UPDATED SMTP CONFIG (Port 587 instead of 465)
+        // ✅ FIXED SMTP CONFIG (Render Compatible)
         let transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
             port: 587,
-            secure: false, // false for TLS (587)
+            secure: false,
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS
@@ -36,6 +36,7 @@ app.post("/send", async (req, res) => {
             }
         });
 
+        // Admin Email
         await transporter.sendMail({
             from: `"Anurag Developers" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_USER,
@@ -65,6 +66,7 @@ app.post("/send", async (req, res) => {
             `
         });
 
+        // User Auto Reply
         await transporter.sendMail({
             from: `"Anurag Developers" <${process.env.EMAIL_USER}>`,
             to: email,
@@ -100,7 +102,7 @@ app.post("/send", async (req, res) => {
         res.json({ success: true });
 
     } catch (error) {
-        console.error(error);
+        console.error("Email Error:", error);
         res.json({ success: false });
     }
 });
