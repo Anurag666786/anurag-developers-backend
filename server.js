@@ -5,7 +5,12 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+
+// ✅ Updated CORS for Vercel frontend
+app.use(cors({
+    origin: "https://anurag-developers-backend.vercel.app"
+}));
+
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
@@ -14,7 +19,6 @@ app.post("/send", async (req, res) => {
     try {
         const { name, email, message } = req.body;
 
-        // 🔹 UPDATE THESE AFTER DEPLOYING ON VERCEL
         const websiteURL = "https://yourwebsite.vercel.app";
         const logoURL = "https://yourwebsite.vercel.app/logo.png";
 
@@ -26,7 +30,6 @@ app.post("/send", async (req, res) => {
             }
         });
 
-        // 🔹 1. Email sent to YOU (Styled + Logo + Website Link)
         await transporter.sendMail({
             from: `"Anurag Developers" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_USER,
@@ -56,7 +59,6 @@ app.post("/send", async (req, res) => {
             `
         });
 
-        // 🔹 2. Auto Reply to USER (Styled + Logo + Website Link)
         await transporter.sendMail({
             from: `"Anurag Developers" <${process.env.EMAIL_USER}>`,
             to: email,
@@ -97,7 +99,6 @@ app.post("/send", async (req, res) => {
     }
 });
 
-// ✅ IMPORTANT: Dynamic PORT for deployment (Render)
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
