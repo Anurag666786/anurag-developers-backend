@@ -1,5 +1,5 @@
 const express = require("express");
-const nodemailer = require("nodemailer");
+const sgMail = require("@sendgrid/mail");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
@@ -14,6 +14,9 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
+// ✅ Initialize SendGrid
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 // CONTACT FORM API
 app.post("/send", async (req, res) => {
     try {
@@ -22,24 +25,10 @@ app.post("/send", async (req, res) => {
         const websiteURL = "https://yourwebsite.vercel.app";
         const logoURL = "https://yourwebsite.vercel.app/logo.png";
 
-        // ✅ FIXED SMTP CONFIG (Render Compatible)
-        let transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 587,
-            secure: false,
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
-            },
-            tls: {
-                rejectUnauthorized: false
-            }
-        });
-
-        // Admin Email
-        await transporter.sendMail({
-            from: `"Anurag Developers" <${process.env.EMAIL_USER}>`,
-            to: process.env.EMAIL_USER,
+        // ✅ Email to Admin
+        const adminMsg = {
+            to: "anuragdevelopers666786@gmail.com", // MUST be verified in SendGrid
+            from: "anuragdevelopers@gmail.com", // MUST be verified in SendGrid
             subject: "🚀 New Contact Message",
             html: `
                 <div style="font-family: Arial; padding:20px;">
@@ -64,12 +53,12 @@ app.post("/send", async (req, res) => {
                     <small>This message was sent from your website contact form.</small>
                 </div>
             `
-        });
+        };
 
-        // User Auto Reply
-        await transporter.sendMail({
-            from: `"Anurag Developers" <${process.env.EMAIL_USER}>`,
+        // ✅ Auto Reply to User
+        const userMsg = {
             to: email,
+            from: "your_verified_sender_email@gmail.com", // MUST be verified in SendGrid
             subject: "✅ We Received Your Message",
             html: `
                 <div style="font-family: Arial; padding:20px;">
@@ -97,12 +86,16 @@ app.post("/send", async (req, res) => {
                     </p>
                 </div>
             `
-        });
+        };
+
+        // Send both emails
+        await sgMail.send(adminMsg);
+        await sgMail.send(userMsg);
 
         res.json({ success: true });
 
     } catch (error) {
-        console.error("Email Error:", error);
+        console.error("Email Error:", error.response?.body || error.message);
         res.json({ success: false });
     }
 });
