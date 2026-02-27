@@ -22,11 +22,17 @@ app.post("/send", async (req, res) => {
         const websiteURL = "https://yourwebsite.vercel.app";
         const logoURL = "https://yourwebsite.vercel.app/logo.png";
 
+        // ✅ UPDATED SMTP CONFIG (Port 587 instead of 465)
         let transporter = nodemailer.createTransport({
-            service: "gmail",
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false, // false for TLS (587)
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS
+            },
+            tls: {
+                rejectUnauthorized: false
             }
         });
 
