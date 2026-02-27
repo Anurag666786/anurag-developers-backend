@@ -61,9 +61,7 @@ app.post("/send", async (req, res) => {
             from: "anuragdevelopers666786@gmail.com", // ✅ VERIFIED EMAIL
             subject: "✅ We Received Your Message",
             html: `
-                <div style="font-family: Arial; padding:20px;">
-                    <img src="${logoURL}" alt="Logo" width="120" style="margin-bottom:15px;" />
-
+                
                     <h2 style="color:#0084ff;">Thank You, ${name}! 🙌</h2>
                     
                     <p>We have successfully received your message.</p>
