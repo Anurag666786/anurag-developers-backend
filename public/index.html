@@ -182,6 +182,31 @@ section {
     line-height: 1.8;
 }
 
+/* Speciality Section */
+.tech-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.tech-badge {
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: default;
+}
+
+.tech-badge:hover {
+    background: #a3caee;
+    color: black;
+    transform: scale(1.1);
+}
+
 form {
     max-width: 500px;
     margin: auto;
@@ -239,6 +264,7 @@ footer {
 
     <ul id="nav-links">
         <li><a href="#home">Home</a></li>
+        <li><a href="#speciality">Speciality</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -253,9 +279,22 @@ footer {
     <h1>Anurag Developers</h1>
     <h2>Building Smart Web Solutions for you</h2>
     <p>Innovative • Practical • User-Friendly</p>
-        <p>Always Ahead</p>
-
+    <p>Always Ahead</p>
 </header>
+
+<section id="speciality" class="hidden">
+    <h1>Our Speciality</h1>
+    <div class="tech-container">
+        <div class="tech-badge">JavaScript</div>
+        <div class="tech-badge">HTML5</div>
+        <div class="tech-badge">CSS3</div>
+        <div class="tech-badge">Node.js</div>
+        <div class="tech-badge">Express.js</div>
+        <div class="tech-badge">MongoDB</div>
+        <div class="tech-badge">Responsive Design</div>
+        <div class="tech-badge">REST APIs</div>
+    </div>
+</section>
 
 <section id="projects" class="hidden">
     <h1>Our Projects</h1>
