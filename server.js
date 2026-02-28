@@ -2,8 +2,6 @@ const express = require("express");
 const sgMail = require("@sendgrid/mail");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const fs = require("fs");
-const path = require("path");
 require("dotenv").config();
 
 const app = express();
@@ -25,19 +23,16 @@ app.post("/send", async (req, res) => {
         const { name, email, message } = req.body;
 
         const websiteURL = "https://anurag-developers-backend.vercel.app/";
-
-        // ✅ Read logo and convert to base64
-        const logoPath = path.join(__dirname, "public/logo.png");
-        const logoBase64 = fs.readFileSync(logoPath).toString("base64");
+        const logoURL = "https://anurag-developers-backend.vercel.app/logo.png";
 
         // ✅ Email to Admin
         const adminMsg = {
             to: "anuragdevelopers666786@gmail.com",
-            from: "anuragdevelopers666786@gmail.com",
+            from: "anuragdevelopers666786@gmail.com", // ✅ VERIFIED EMAIL
             subject: "🚀 New Contact Message",
             html: `
                 <div style="font-family: Arial; padding:20px;">
-                    <img src="cid:logoCID" alt="Logo" width="120" style="margin-bottom:15px;" />
+                    <img src="${logoURL}" alt="Logo" width="120" style="margin-bottom:15px;" />
                     
                     <h2 style="color:#0084ff;">New Contact Form Submission</h2>
                     
@@ -57,26 +52,17 @@ app.post("/send", async (req, res) => {
                     <br/><br/>
                     <small>This message was sent from your website contact form.</small>
                 </div>
-            `,
-            attachments: [
-                {
-                    content: logoBase64,
-                    filename: "logo.png",
-                    type: "image/png",
-                    disposition: "inline",
-                    content_id: "logoCID"
-                }
-            ]
+            `
         };
 
         // ✅ Auto Reply to User
         const userMsg = {
             to: email,
-            from: "anuragdevelopers666786@gmail.com",
+            from: "anuragdevelopers666786@gmail.com", // ✅ VERIFIED EMAIL
             subject: "✅ We Received Your Message",
             html: `
                 <div style="font-family: Arial; padding:20px;">
-                    <img src="cid:logoCID" alt="Logo" width="120" style="margin-bottom:15px;" />
+                    <img src="${logoURL}" alt="Logo" width="120" style="margin-bottom:15px;" />
 
                     <h2 style="color:#0084ff;">Thank You, ${name}! 🙌</h2>
                     
@@ -99,16 +85,7 @@ app.post("/send", async (req, res) => {
                         </a>
                     </p>
                 </div>
-            `,
-            attachments: [
-                {
-                    content: logoBase64,
-                    filename: "logo.png",
-                    type: "image/png",
-                    disposition: "inline",
-                    content_id: "logoCID"
-                }
-            ]
+            `
         };
 
         // Send both emails
