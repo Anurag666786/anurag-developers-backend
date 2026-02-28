@@ -21,7 +21,7 @@
 body{
 color:white;
 transition:0.4s;
-background:linear-gradient(-45deg,#021a47,#1e3c72,#2a5298,#0f2027,#203a43,#1d8043);
+background:linear-gradient(-45deg,#021a47,#1e3c72,#2a5298, #06080e ,#0f2027,#203a43,#1d8043);
 background-size:400% 400%;
 animation:gradientBG 12s ease infinite;
 }
@@ -39,8 +39,6 @@ nav ul{list-style:none;display:flex;gap:25px;}
 nav a{text-decoration:none;color:white;font-weight:bold;transition:0.3s;}
 nav a:hover{color:#a3caee;}
 
-/* ===== UPDATED BUTTON COLORS ===== */
-
 .toggle-btn,
 .btn,
 button{
@@ -57,14 +55,8 @@ box-shadow:0 0 12px rgba(79,172,254,0.7),0 0 25px rgba(0,242,254,0.5);
 transition:0.3s;
 }
 
-.toggle-btn{
-padding:6px 14px;
-}
-
-.btn{
-text-decoration:none;
-display:inline-block;
-}
+.toggle-btn{padding:6px 14px;}
+.btn{text-decoration:none;display:inline-block;}
 
 .toggle-btn:hover,
 .btn:hover,
@@ -72,8 +64,6 @@ button:hover{
 box-shadow:0 0 20px rgba(79,172,254,1),0 0 35px rgba(0,242,254,0.8);
 transform:translateY(-2px);
 }
-
-/* ================================ */
 
 .menu-btn{display:none;font-size:18px;background:none;color:white;padding:6px 12px;border-radius:10px;}
 
@@ -93,15 +83,28 @@ section{padding:80px 20px;text-align:center;}
 
 .container{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:50px;}
 
-.card{width:320px;padding:30px;border-radius:20px;background:rgba(255,255,255,0.15);backdrop-filter:blur(15px);box-shadow:0 10px 30px rgba(0,0,0,0.4);transition:0.4s;}
+.card{
+width:320px;
+padding:30px;
+border-radius:20px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+transition:0.4s;
+}
 .card:hover{transform:translateY(-10px);}
 .card p{margin-bottom:20px;}
 
 #about p{max-width:700px;margin:auto;line-height:1.8;}
 
-/* ===== Enhanced Speciality Section ===== */
+/* ===== Speciality Section ===== */
 
-.skill-box{max-width:700px;margin:40px auto;text-align:left;}
+.skill-box{
+max-width:700px;
+margin:0 auto;
+text-align:left;
+}
+
 .skill{margin-bottom:30px;}
 
 .skill-title{
@@ -152,7 +155,6 @@ transition:width 2s ease;
 100%{background-position:0% 50%;}
 }
 
-/* Contact */
 form{max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px;}
 input,textarea{padding:12px;border-radius:8px;border:none;outline:none;}
 .status-message{margin-top:10px;font-weight:bold;}
@@ -189,6 +191,10 @@ footer{background:rgba(0,0,0,0.5);padding:30px;text-align:center;font-size:14px;
 
 <section id="speciality" class="hidden">
 <h1>Our Speciality</h1>
+
+<!-- NEW CARD CONTAINER ADDED HERE -->
+<div class="container">
+<div class="card" style="width:700px;max-width:100%;">
 
 <div class="skill-box">
 
@@ -233,7 +239,11 @@ footer{background:rgba(0,0,0,0.5);padding:30px;text-align:center;font-size:14px;
 </div>
 
 </div>
+</div>
+</div>
 </section>
+
+<!-- Rest of file remains EXACTLY same -->
 
 <section id="projects" class="hidden">
 <h1>Our Projects</h1>
