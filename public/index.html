@@ -72,10 +72,34 @@ nav{padding:15px 20px;}
 nav ul{position:absolute;top:65px;left:0;width:100%;background:rgba(0,0,0,0.95);flex-direction:column;align-items:center;gap:20px;padding:20px 0;display:none;}
 nav ul.active{display:flex;}
 .menu-btn{display:block;}
+
+/* Mobile header stays centered */
+header{
+text-align:center;
+flex-direction:column;
+}
 }
 
-header{text-align:center;padding:100px 20px 60px;}
-.logo{width:120px;margin-bottom:20px;}
+/* ===== HEADER UPDATED FOR DESKTOP ===== */
+
+header{
+padding:100px 20px 60px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:50px;
+text-align:left;
+flex-wrap:wrap;
+}
+
+.logo{
+width:120px;
+}
+
+.header-text{
+max-width:600px;
+}
+
 header h1{font-size:42px;margin-bottom:10px;}
 header h2{font-size:32px;margin-bottom:10px;}
 
@@ -183,10 +207,11 @@ footer{background:rgba(0,0,0,0.5);padding:30px;text-align:center;font-size:14px;
 
 <header id="home" class="hidden">
 <img src="logo.png" class="logo">
+<div class="header-text">
 <h1>Anurag Developers</h1>
 <h2>Building Smart Web Solutions for you</h2>
-<p>Innovative • Practical • User-Friendly</p>
-<p>Always Ahead</p>
+<p>Innovative • Practical • User-Friendly • Always Ahead </p>
+</div>
 </header>
 
 <section id="speciality" class="hidden">
