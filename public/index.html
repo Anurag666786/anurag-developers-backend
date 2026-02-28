@@ -12,16 +12,23 @@
 <title>Anurag Developers | Smart Web Solutions</title>
 <link rel="icon" type="image/png" href="favicon.png">
 
-<!-- Icons CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;font-family:Arial,sans-serif;}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Poppins',sans-serif;
+}
 
 body{
 color:white;
 transition:0.4s;
-background:linear-gradient(-45deg,#021a47,#1e3c72,#2a5298, #06080e ,#0f2027,#1d5f31,#10bd2d);
+background:linear-gradient(-45deg,#021a47,#1e3c72,#2a5298,#06080e,#0f2027,#1d5f31,#10bd2d);
 background-size:400% 400%;
 animation:gradientBG 12s ease infinite;
 }
@@ -36,17 +43,15 @@ animation:gradientBG 12s ease infinite;
 
 nav{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.4);backdrop-filter:blur(10px);position:sticky;top:0;z-index:1000;}
 nav ul{list-style:none;display:flex;gap:25px;}
-nav a{text-decoration:none;color:white;font-weight:bold;transition:0.3s;}
+nav a{text-decoration:none;color:white;font-weight:500;transition:0.3s;letter-spacing:0.5px;}
 nav a:hover{color:#a3caee;}
 
-.toggle-btn,
-.btn,
-button{
+.toggle-btn,.btn,button{
 border:none;
 padding:12px 20px;
 border-radius:20px;
 cursor:pointer;
-font-weight:bold;
+font-weight:600;
 color:black;
 background:linear-gradient(90deg,#4facfe,#00f2fe,#43e97b,#38f9d7);
 background-size:300% 300%;
@@ -58,9 +63,7 @@ transition:0.3s;
 .toggle-btn{padding:6px 14px;}
 .btn{text-decoration:none;display:inline-block;}
 
-.toggle-btn:hover,
-.btn:hover,
-button:hover{
+.toggle-btn:hover,.btn:hover,button:hover{
 box-shadow:0 0 20px rgba(79,172,254,1),0 0 35px rgba(0,242,254,0.8);
 transform:translateY(-2px);
 }
@@ -72,38 +75,70 @@ nav{padding:15px 20px;}
 nav ul{position:absolute;top:65px;left:0;width:100%;background:rgba(0,0,0,0.95);flex-direction:column;align-items:center;gap:20px;padding:20px 0;display:none;}
 nav ul.active{display:flex;}
 .menu-btn{display:block;}
-
-/* Mobile header stays centered */
-header{
-text-align:center;
-flex-direction:column;
-}
+header{text-align:center;flex-direction:column;}
 }
 
-/* ===== HEADER UPDATED FOR DESKTOP ===== */
-
 header{
-padding:100px 20px 60px;
+padding:120px 20px 80px;
 display:flex;
 align-items:center;
 justify-content:center;
-gap:50px;
+gap:60px;
 text-align:left;
 flex-wrap:wrap;
 }
 
-.logo{
-width:120px;
+.logo{width:230px;}
+.header-text{max-width:650px;}
+
+header h1{
+font-size:46px;
+font-weight:700;
+margin-bottom:20px;
+line-height:1.2;
+background:linear-gradient(90deg,#ffffff,#a3caee,#4facfe);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+letter-spacing:1px;
 }
 
-.header-text{
-max-width:600px;
+header h3{
+font-size:24px;
+font-weight:400;
+margin-bottom:25px;
+color:#cfd8ff;
+letter-spacing:0.5px;
 }
 
-header h1{font-size:42px;margin-bottom:10px;}
-header h2{font-size:32px;margin-bottom:10px;}
+.hero-desc{
+font-size:18px;
+margin-bottom:30px;
+opacity:0.9;
+color:#e0e9ff;
+}
 
-section{padding:80px 20px;text-align:center;}
+section{
+padding:80px 20px;
+text-align:center;
+}
+
+section h1{
+font-size:42px;
+font-weight:700;
+margin-bottom:15px;
+background:linear-gradient(90deg,#ffffff,#a3caee);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+section h3{
+max-width:750px;
+margin:0 auto 40px auto;
+font-size:18px;
+font-weight:400;
+color:#d6e4ff;
+line-height:1.7;
+}
 
 .container{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:50px;}
 
@@ -117,26 +152,27 @@ box-shadow:0 10px 30px rgba(0,0,0,0.4);
 transition:0.4s;
 }
 .card:hover{transform:translateY(-10px);}
-.card p{margin-bottom:20px;}
+.card p{margin-bottom:20px;color:#e6ecff;}
 
-#about p{max-width:700px;margin:auto;line-height:1.8;}
-
-/* ===== Speciality Section ===== */
-
-.skill-box{
-max-width:700px;
-margin:0 auto;
-text-align:left;
+#about p{
+max-width:750px;
+margin:auto;
+line-height:1.9;
+font-size:16px;
+color:#e0e9ff;
 }
 
+.skill-box{max-width:700px;margin:0 auto;text-align:left;}
 .skill{margin-bottom:30px;}
 
 .skill-title{
 display:flex;
 align-items:center;
 justify-content:space-between;
-font-weight:bold;
-margin-bottom:10px;
+font-weight:600;
+font-size:16px;
+margin-bottom:12px;
+letter-spacing:0.5px;
 }
 
 .skill-title i{
@@ -147,26 +183,20 @@ text-shadow:0 0 8px #a3caee,0 0 15px #4facfe;
 }
 
 .percent{
-padding:4px 10px;
+padding:5px 12px;
 border-radius:20px;
-background:rgba(255,255,255,0.15);
+background:rgba(255,255,255,0.1);
 backdrop-filter:blur(10px);
-font-size:14px;
-box-shadow:0 0 10px rgba(163,202,238,0.5);
+font-size:13px;
+font-weight:600;
+color:#ffffff;
+box-shadow:0 0 12px rgba(79,172,254,0.6);
 }
 
-.skill-bar{
-width:100%;
-height:14px;
-background:rgba(255,255,255,0.2);
-border-radius:20px;
-overflow:hidden;
-}
+.skill-bar{width:100%;height:14px;background:rgba(255,255,255,0.2);border-radius:20px;overflow:hidden;}
 
 .skill-progress{
-height:100%;
-width:0;
-border-radius:20px;
+height:100%;width:0;border-radius:20px;
 background:linear-gradient(90deg,#4facfe,#00f2fe,#43e97b,#38f9d7);
 background-size:300% 300%;
 animation:gradientMove 4s linear infinite;
@@ -193,7 +223,7 @@ footer{background:rgba(0,0,0,0.5);padding:30px;text-align:center;font-size:14px;
 <body>
 
 <nav>
-<div><strong>Anurag Developers</strong></div>
+<div><strong>Anurag Developers ©</strong></div>
 <ul id="nav-links">
 <li><a href="#home">Home</a></li>
 <li><a href="#speciality">Speciality</a></li>
@@ -208,17 +238,19 @@ footer{background:rgba(0,0,0,0.5);padding:30px;text-align:center;font-size:14px;
 <header id="home" class="hidden">
 <img src="logo.png" class="logo">
 <div class="header-text">
-<h1>Anurag Developers</h1>
-<h2>Building Smart Web Solutions for you</h2>
-<p>Innovative • Practical • User-Friendly • Always-Ahead </p>
+<h1>We Build Smart & Scalable Web Applications</h1>
+<h3>Helping Businesses Grow with Modern Technology</h3>
+<p class="hero-desc">
+Custom web solutions focused on performance, usability, and real-world impact.
+</p>
+<a href="#contact" class="btn">Start Your Project</a>
 </div>
 </header>
 
 <section id="speciality" class="hidden">
-<h1>Specializations</h1>
-<p>We are specialized in following technologies</p>
+<h1>Core Technical Expertise</h1>
+<h3>Our technology capabilities reflect deep technical proficiency and implementation standards.</h3>
 
-<!-- NEW CARD CONTAINER ADDED HERE -->
 <div class="container">
 <div class="card" style="width:700px;max-width:100%;">
 
@@ -290,8 +322,11 @@ footer{background:rgba(0,0,0,0.5);padding:30px;text-align:center;font-size:14px;
 <section id="about" class="hidden">
 <h1>About Us</h1>
 <p>
-Anurag Developers builds efficient and practical digital tools designed to simplify everyday tasks.
-We focus on performance, clean UI, and real-world usability. Client is our priority.
+Anurag Developers © is a professional web development firm committed to delivering enterprise-grade digital solutions that drive measurable business outcomes. We design and develop high-performance web applications tailored to meet the evolving demands of modern organizations.
+Our expertise spans full-stack development, scalable architecture, performance optimization, and user-centric interface design. Every solution we build is engineered with precision, ensuring reliability, security, and long-term sustainability. We emphasize clean code standards, structured development processes, and strategic execution to guarantee quality at every stage of the project lifecycle.
+At Anurag Developers, we understand that technology is not just about functionality — it is about enabling growth, efficiency, and competitive advantage. Our development approach is guided by careful analysis, technical excellence, and a commitment to delivering solutions that align with our clients’ strategic objectives.
+We collaborate closely with businesses to transform complex challenges into streamlined digital systems. From concept to deployment, our team prioritizes transparency, accountability, and consistent communication to ensure successful project delivery.
+With a focus on innovation, operational excellence, and long-term value creation, Anurag Developers serves as a trusted technology partner for organizations seeking dependable, scalable, and future-ready web solutions.
 </p>
 </section>
 
