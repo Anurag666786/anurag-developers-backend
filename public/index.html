@@ -369,7 +369,7 @@ const response=await fetch("https://anurag-developers.onrender.com/send",{method
 const result=await response.json();
 if(result.success){
 status.style.color="lightgreen";
-status.innerText="Message sent successfully!";
+status.innerText="Message sent successfully! Please check your spam folder if not found.";
 document.getElementById("contactForm").reset();
 }else{throw new Error();}
 }catch(error){
