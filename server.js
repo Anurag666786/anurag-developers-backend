@@ -8,7 +8,7 @@ const app = express();
 
 // ✅ CORS for Vercel frontend
 app.use(cors({
-    origin: "https://anurag-developers-backend.vercel.app"
+    origin: "https://anurag-developers.vercel.app/"
 }));
 
 app.use(bodyParser.json());
@@ -22,7 +22,7 @@ app.post("/send", async (req, res) => {
     try {
         const { name, email, message } = req.body;
 
-        const websiteURL = "https://anurag-developers-backend.vercel.app/";
+        const websiteURL = "https://anurag-developers.vercel.app/";
         const logoURL = "https://ibb.co/7djt8TKR";
 
         // ✅ Email to Admin
