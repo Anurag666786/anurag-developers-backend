@@ -8,7 +8,9 @@ const app = express();
 
 // ✅ CORS for Vercel frontend
 app.use(cors({
-    origin: "https://anurag-developers.vercel.app/"
+    origin: "https://anurag-developers.vercel.app",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"]
 }));
 
 app.use(bodyParser.json());
