@@ -25,8 +25,7 @@ app.post("/send", async (req, res) => {
         const { name, email, message } = req.body;
 
         const websiteURL = "https://anurag-developers.vercel.app";
-        const logoURL = "https://ibb.co/7djt8TKR";
-
+        const logoURL = "https://anurag-developers.vercel.app/logo.png";
         // ✅ Email to Admin
         const adminMsg = {
             to: "anuragdevelopers666786@gmail.com",
